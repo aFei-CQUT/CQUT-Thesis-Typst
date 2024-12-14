@@ -269,7 +269,7 @@
 
   [
     A dissertation submitted to  \
-    the graduate school of #(if not anonymous { "Nanjing University" })  \
+    the graduate school of #(if not anonymous { "Chongqing University of Technology" })  \
     in partial fulfilment of the requirements for the degree of  \
   ]
 
@@ -298,7 +298,7 @@
   v(2pt)
 
   if not anonymous {
-    [Nanjing University]
+    [Chongqing University of Technology]
   }
 
   v(28pt)

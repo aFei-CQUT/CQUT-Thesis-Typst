@@ -43,13 +43,12 @@
     }
   }
 
-  // 4.  正式渲染
+  // 4. 正式渲染
   [
     #pagebreak(weak: true, to: if twoside { "odd" })
 
     #set text(font: fonts.楷体, size: 字号.小四)
-    #set par(leading: leading, justify: true)
-    #show par: set block(spacing: spacing)
+    #set par(leading: leading, justify: true, spacing: spacing) // 修改这里
 
     // 标记一个不可见的标题用于目录生成
     #invisible-heading(level: 1, outlined: outlined, outline-title)
@@ -64,20 +63,30 @@
 
     #v(2pt)
 
-    THESIS: #info-value("title-en", (("",)+ info.title-en).sum())
+    // THESIS: #info-value("title-en", (("",)+ info.title-en).sum())
 
-    DEPARTMENT: #info-value("department-en", info.department-en)
+    // DEPARTMENT: #info-value("department-en", info.department-en)
 
-    SPECIALIZATION: #info-value("major-en", info.major-en)
+    // SPECIALIZATION: #info-value("major-en", info.major-en)
 
-    UNDERGRADUATE: #info-value("author-en", info.author-en)
+    // UNDERGRADUATE: #info-value("author-en", info.author-en)
 
-    MENTOR: #info-value("supervisor-en", info.supervisor-en) #(if info.supervisor-ii-en != "" [#h(1em) #info-value("supervisor-ii-en", info.supervisor-ii-en)])
+    // MENTOR: #info-value("supervisor-en", info.supervisor-en) #(if info.supervisor-ii-en != "" [#h(1em) #info-value("supervisor-ii-en", info.supervisor-ii-en)])
 
-    ABSTRACT: #body
+
+    #align(center)[
+      #set text(size: 字号.小二, weight: "bold")
+
+      #v(1em)
+
+      ABSTRACT
+      
+    ]
+
+    #body
 
     #v(1em)
 
-    KEYWORDS: #(("",)+ keywords.intersperse("; ")).sum()
+    #fakebold[KEYWORDS]: #(("",)+ keywords.intersperse("; ")).sum()
   ]
 }
